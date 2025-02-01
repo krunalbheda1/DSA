@@ -1,17 +1,16 @@
-nums1 = [1,3]
-nums2 = [2,4]
-# Output: 2.00000
+# 4. Median of Two Sorted Arrays
 
-combine_nums = sorted(nums1 + nums2)
-len_num =len(combine_nums)
+# https://leetcode.com/problems/median-of-two-sorted-arrays/?envType=problem-list-v2&envId=array s
 
-print(combine_nums)
+nums1 = [1,2]
+nums2 = [3]
 
-mid = len_num//2
-print(mid)
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        combine_num = sorted(nums1 + nums2)
+        length = len(combine_num)
+        number = ((combine_num[length//2 - 1] + combine_num[length//2]) / 2.0) if length % 2 == 0 else combine_num[length//2]
+        return number
 
-if (len_num % 2 != 0):
-    print(combine_nums[mid])
-else:
-    print(float(combine_nums[mid] + combine_nums[mid-1]) )
-
+output = Solution()
+print(output.findMedianSortedArrays(nums1,nums2))
